@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+    <style>
+        body { font-family: Arial, sans-serif; display: flex; flex-direction: column; align-items: center; padding: 20px; background-color: #f4f4f9; }
+        .form-container { max-width: 400px; width: 100%; padding: 20px; background-color: #fff; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+        h2 { text-align: center; color: #333; }
+        input, textarea { width: 100%; padding: 10px; margin-top: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc; }
+        button { width: 100%; padding: 10px; background-color: #007bff; color: #fff; border: none; border-radius: 5px; cursor: pointer; }
+        .feedback-list { margin-top: 20px; width: 100%; max-width: 400px; }
+        .feedback-item { padding: 10px; background-color: #e9ecef; border-radius: 5px; margin-bottom: 10px; }
+        .feedback-item h4 { margin: 0; color: #007bff; }
+        .feedback-item p { margin: 5px 0 0; }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Leave Your Feedback</h2>
+        <form method="POST" action="{{ url_for('feedback') }}">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <textarea name="feedback" rows="4" placeholder="Your Feedback" required></textarea>
+            <button type="submit">Submit Feedback</button>
+        </form>
+    </div>
+
+    <div class="feedback-list">
+        <h3>Feedback History</h3>
+        {% for item in feedback_list %}
+            <div class="feedback-item">
+                <h4>{{ item.name }}</h4>
+                <p>{{ item.feedback }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

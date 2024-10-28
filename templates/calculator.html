@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body { font-family: Arial, sans-serif; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+        h1 { color: #333; }
+        form { margin: 20px 0; }
+        input[type="text"], button { padding: 10px; font-size: 1em; }
+    </style>
+</head>
+<body>
+    <h1>Simple Calculator</h1>
+    <form method="POST" action="/calculator">
+        <input type="text" name="num1" placeholder="Enter first number" required>
+        <input type="text" name="num2" placeholder="Enter second number" required>
+        <button type="submit">Add</button>
+    </form>
+    {% if result is not none %}
+        <h2>Result: {{ result }}</h2>
+    {% endif %}
+</body>
+</html>

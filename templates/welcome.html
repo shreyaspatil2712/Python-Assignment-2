@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <style>
+        body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f4f4f9; margin: 0; }
+        h1 { color: #333; }
+    </style>
+</head>
+<body>
+    <h1>Welcome, {{ name }}!</h1>
+    <a href="{{ url_for('logout') }}">Logout</a>
+</body>
+</html>
